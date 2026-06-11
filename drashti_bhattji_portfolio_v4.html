@@ -1,0 +1,324 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--color-text-primary);line-height:1.7}
+a{color:inherit;text-decoration:none}
+nav{display:flex;justify-content:space-between;align-items:center;padding:.875rem 2rem;border-bottom:.5px solid var(--color-border-tertiary);position:sticky;top:0;background:var(--color-background-primary);z-index:10}
+.logo{font-size:16px;font-weight:500}
+.logo span{color:#D85A30}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{font-size:13px;color:var(--color-text-secondary);cursor:pointer}
+.nav-links a:hover{color:var(--color-text-primary)}
+.btn-p{background:#D85A30;color:#fff;border:none;padding:8px 18px;border-radius:var(--border-radius-md);font-size:13px;cursor:pointer;font-weight:500}
+.btn-p:hover{background:#993C1D}
+.btn-o{background:transparent;color:var(--color-text-primary);border:.5px solid var(--color-border-secondary);padding:8px 18px;border-radius:var(--border-radius-md);font-size:13px;cursor:pointer}
+.btn-o:hover{background:var(--color-background-secondary)}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center;padding:3rem 2rem;border-bottom:.5px solid var(--color-border-tertiary)}
+.badge{display:inline-flex;align-items:center;gap:6px;background:#FAECE7;color:#993C1D;font-size:11px;padding:4px 12px;border-radius:20px;margin-bottom:1.1rem;font-weight:500}
+.hero h1{font-size:27px;font-weight:500;line-height:1.3;margin-bottom:.9rem}
+.hero h1 em{font-style:normal;color:#D85A30}
+.hero-desc{font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin-bottom:1.25rem;max-width:440px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.stats{display:flex;gap:1.5rem;margin-top:1.5rem;padding-top:1.25rem;border-top:.5px solid var(--color-border-tertiary);flex-wrap:wrap}
+.stat-n{font-size:20px;font-weight:500;color:#D85A30}
+.stat-l{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
+.profile-card{background:#FAECE7;border-radius:var(--border-radius-lg);padding:1.75rem;display:flex;flex-direction:column;align-items:center;gap:1rem;border:.5px solid #F5C4B3}
+.pc-name{font-size:16px;font-weight:500;text-align:center}
+.pc-role{font-size:12px;color:#993C1D;text-align:center}
+.avail{display:inline-flex;align-items:center;gap:5px}
+.dot{width:7px;height:7px;border-radius:50%;background:#1D9E75;display:inline-block}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.chip{background:#fff;border:.5px solid #F5C4B3;border-radius:20px;padding:3px 11px;font-size:11px;color:#993C1D}
+.pc-links{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.pc-links a{display:flex;align-items:center;gap:5px;font-size:12px;color:#993C1D;background:#fff;border:.5px solid #F5C4B3;padding:5px 10px;border-radius:var(--border-radius-md)}
+.pc-links a:hover{background:#FAECE7}
+section{padding:2.5rem 2rem}
+.sec-tag{display:inline-block;background:#FAECE7;color:#993C1D;font-size:11px;padding:4px 12px;border-radius:20px;margin-bottom:.6rem;font-weight:500}
+.sec-title{font-size:20px;font-weight:500;margin-bottom:.4rem}
+.sec-sub{font-size:14px;color:var(--color-text-secondary);max-width:520px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;border-top:.5px solid var(--color-border-tertiary)}
+.about-text p{font-size:14px;color:var(--color-text-secondary);margin-bottom:.9rem}
+.exp-timeline{display:flex;flex-direction:column;gap:10px;margin-top:2.2rem}
+.exp-item{display:flex;gap:12px;padding:12px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);border:.5px solid var(--color-border-tertiary)}
+.exp-dot{width:10px;height:10px;border-radius:50%;background:#D85A30;margin-top:5px;flex-shrink:0}
+.exp-role{font-size:13px;font-weight:500}
+.exp-co{font-size:12px;color:#D85A30}
+.exp-date{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
+.skills-bg{background:var(--color-background-secondary);border-top:.5px solid var(--color-border-tertiary);border-bottom:.5px solid var(--color-border-tertiary)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:1.25rem}
+.sk{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:.875rem;text-align:center}
+.sk-ico{width:38px;height:38px;background:#FAECE7;border-radius:9px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:19px;color:#D85A30}
+.sk-name{font-size:13px;font-weight:500;margin-bottom:5px}
+.sk-bar{height:3px;background:var(--color-border-tertiary);border-radius:4px;overflow:hidden}
+.sk-fill{height:3px;background:#D85A30;border-radius:4px}
+.sk-pct{font-size:10px;color:var(--color-text-secondary);margin-top:4px}
+.tools-section{margin-top:1.5rem}
+.tools-label{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.tools-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.tool-tag{background:var(--color-background-primary);border:.5px solid var(--color-border-secondary);border-radius:20px;padding:4px 12px;font-size:12px;color:var(--color-text-secondary)}
+.tool-tag.ai{background:#EEEDFE;border-color:#AFA9EC;color:#534AB7}
+.projects-section{border-top:.5px solid var(--color-border-tertiary)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(188px,1fr));gap:14px;margin-top:1.25rem}
+.pc{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;display:flex;flex-direction:column}
+.pc-thumb{height:88px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;font-size:11px;font-weight:500;letter-spacing:.3px}
+.pt-emoji{font-size:26px}
+.pc-body{padding:.875rem;flex:1;display:flex;flex-direction:column}
+.p-tag{font-size:10px;background:#FAECE7;color:#993C1D;padding:3px 9px;border-radius:20px;display:inline-block;margin-bottom:7px}
+.p-title{font-size:13px;font-weight:500;margin-bottom:5px}
+.p-desc{font-size:11px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:8px;flex:1}
+.p-results{display:flex;flex-direction:column;gap:3px}
+.p-result{font-size:11px;color:#993C1D;font-weight:500}
+.p-result i{font-size:12px;vertical-align:-1px}
+.p-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;padding-top:8px;border-top:.5px solid var(--color-border-tertiary)}
+.p-link{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--color-text-secondary);background:var(--color-background-secondary);padding:3px 8px;border-radius:20px;border:.5px solid var(--color-border-tertiary)}
+.p-link:hover{color:#D85A30;border-color:#F5C4B3}
+.contact-section{border-top:.5px solid var(--color-border-tertiary)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.25rem}
+.ci{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ci-ico{width:38px;height:38px;background:#FAECE7;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:19px;color:#D85A30}
+.ci-lbl{font-size:11px;color:var(--color-text-secondary)}
+.ci-val{font-size:13px;font-weight:500}
+.cf{background:var(--color-background-secondary);padding:1.25rem;border-radius:var(--border-radius-lg);border:.5px solid var(--color-border-tertiary)}
+.fg{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+.fg label{font-size:12px;color:var(--color-text-secondary)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+textarea{resize:vertical;min-height:72px;width:100%;padding:8px 10px;border:.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);font-family:var(--font-sans);font-size:13px;color:var(--color-text-primary);background:var(--color-background-primary)}
+.footer{text-align:center;padding:1.25rem;border-top:.5px solid var(--color-border-tertiary);font-size:12px;color:var(--color-text-secondary)}
+@media(max-width:620px){.hero,.about-grid,.contact-grid{grid-template-columns:1fr}.fr{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
+<h2 class="sr-only">Drashti Bhattji — Senior Digital Marketing Professional portfolio</h2>
+
+<nav>
+  <span class="logo">Drashti <span>Bhattji</span></span>
+  <div class="nav-links">
+    <a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</a>
+    <a onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">Skills</a>
+    <a onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Projects</a>
+    <a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</a>
+  </div>
+  <button class="btn-p" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire me</button>
+</nav>
+
+<div class="hero">
+  <div>
+    <div class="badge"><i class="ti ti-sparkles" aria-hidden="true"></i> Senior Digital Marketing Professional</div>
+    <h1>I grow brands with <em>performance marketing</em> and social media that converts</h1>
+    <p class="hero-desc">4+ years helping startups and businesses scale through paid media, social media, and content strategy — from zero to measurable results.</p>
+    <div class="ctas">
+      <button class="btn-p" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">See my work</button>
+      <button class="btn-o" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in touch</button>
+    </div>
+    <div class="stats">
+      <div><div class="stat-n">300+</div><div class="stat-l">Conversions via Meta Ads</div></div>
+      <div><div class="stat-n">5</div><div class="stat-l">Brands managed</div></div>
+      <div><div class="stat-n">4 yrs</div><div class="stat-l">Experience</div></div>
+    </div>
+  </div>
+  <div class="profile-card">
+    <div>
+      <div class="pc-name">Drashti Bhattji</div>
+      <div class="pc-role">Digital Marketing Lead · Ahmedabad, India</div>
+    </div>
+    <div class="avail"><span class="dot"></span><span style="font-size:11px;color:#0F6E56">Open to opportunities</span></div>
+    <div class="chips">
+      <span class="chip">SEO</span><span class="chip">SMM</span><span class="chip">SEM</span><span class="chip">Meta Ads</span><span class="chip">Google Ads</span><span class="chip">Content</span><span class="chip">Analytics</span>
+    </div>
+    <div class="pc-links">
+      <a href="https://www.linkedin.com/in/drashti-bhattji/" target="_blank"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+      <a href="mailto:drashtibhattji11@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i> Email</a>
+    </div>
+  </div>
+</div>
+
+<section class="about-grid" id="about">
+  <div>
+    <span class="sec-tag">About me</span>
+    <h2 class="sec-title">Results first, always</h2>
+    <div class="about-text" style="margin-top:.9rem">
+      <p>I'm a Senior Digital Marketing Professional based in Ahmedabad with 4+ years of hands-on experience across performance marketing, growth strategy, social media, and team leadership.</p>
+      <p>At Infomatic Solutions, I currently lead end-to-end digital marketing for 4+ in-house brands — managing multi-channel campaigns, building funnels, and mentoring a growing team.</p>
+      <p>I believe great marketing blends creative instinct with analytical rigour. I don't just run campaigns — I optimise every layer until the numbers move.</p>
+    </div>
+  </div>
+  <div class="exp-timeline">
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div><div class="exp-role">Digital Marketing Lead</div><div class="exp-co">Infomatic Solutions</div><div class="exp-date">Jul 2023 – Present · ~3 years</div></div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-dot" style="background:#F0997B"></div>
+      <div><div class="exp-role">SEO Executive</div><div class="exp-co">Poised Media</div><div class="exp-date">Mar 2023 – Jun 2023</div></div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-dot" style="background:#F0997B"></div>
+      <div><div class="exp-role">Digital Marketing Executive</div><div class="exp-co">The Hope Overseas</div><div class="exp-date">Dec 2021 – Mar 2023 · 80% engagement growth</div></div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-dot" style="background:var(--color-border-secondary)"></div>
+      <div><div class="exp-role">Digital Marketing Trainee</div><div class="exp-co">Azine Technology</div><div class="exp-date">Jun 2020 – Dec 2020</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-bg" id="skills">
+  <span class="sec-tag">Skills</span>
+  <h2 class="sec-title">What I bring to every campaign</h2>
+  <div class="skills-grid">
+    <div class="sk"><div class="sk-ico"><i class="ti ti-brand-google" aria-hidden="true"></i></div><div class="sk-name">SEO / SEM</div><div class="sk-bar"><div class="sk-fill" style="width:92%"></div></div><div class="sk-pct">Expert</div></div>
+    <div class="sk"><div class="sk-ico"><i class="ti ti-ad" aria-hidden="true"></i></div><div class="sk-name">Paid ads</div><div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div><div class="sk-pct">Expert</div></div>
+    <div class="sk"><div class="sk-ico"><i class="ti ti-chart-line" aria-hidden="true"></i></div><div class="sk-name">Performance mktg</div><div class="sk-bar"><div class="sk-fill" style="width:88%"></div></div><div class="sk-pct">Expert</div></div>
+    <div class="sk"><div class="sk-ico"><i class="ti ti-brand-instagram" aria-hidden="true"></i></div><div class="sk-name">Social media</div><div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div><div class="sk-pct">Expert</div></div>
+    <div class="sk"><div class="sk-ico"><i class="ti ti-chart-bar" aria-hidden="true"></i></div><div class="sk-name">Analytics</div><div class="sk-bar"><div class="sk-fill" style="width:86%"></div></div><div class="sk-pct">Advanced</div></div>
+    <div class="sk"><div class="sk-ico"><i class="ti ti-writing" aria-hidden="true"></i></div><div class="sk-name">Content strategy</div><div class="sk-bar"><div class="sk-fill" style="width:85%"></div></div><div class="sk-pct">Advanced</div></div>
+    <div class="sk"><div class="sk-ico"><i class="ti ti-mail" aria-hidden="true"></i></div><div class="sk-name">Email marketing</div><div class="sk-bar"><div class="sk-fill" style="width:80%"></div></div><div class="sk-pct">Advanced</div></div>
+    <div class="sk"><div class="sk-ico"><i class="ti ti-users" aria-hidden="true"></i></div><div class="sk-name">Team leadership</div><div class="sk-bar"><div class="sk-fill" style="width:82%"></div></div><div class="sk-pct">Advanced</div></div>
+  </div>
+  <div class="tools-section">
+    <div class="tools-label">Marketing tools</div>
+    <div class="tools-row">
+      <span class="tool-tag">Google Ads</span><span class="tool-tag">Meta Ads Manager</span><span class="tool-tag">LinkedIn Campaign Manager</span><span class="tool-tag">Google Analytics</span><span class="tool-tag">Google Tag Manager</span><span class="tool-tag">Search Console</span><span class="tool-tag">SEMrush</span><span class="tool-tag">Ahrefs</span><span class="tool-tag">Canva</span><span class="tool-tag">Mailchimp</span><span class="tool-tag">MS Office</span>
+    </div>
+    <div class="tools-label">AI tools</div>
+    <div class="tools-row">
+      <span class="tool-tag ai">ChatGPT</span><span class="tool-tag ai">Gemini</span><span class="tool-tag ai">Claude</span><span class="tool-tag ai">Lovable</span><span class="tool-tag ai">Perplexity</span><span class="tool-tag ai">Notion AI</span><span class="tool-tag ai">Copy.ai</span>
+    </div>
+  </div>
+</section>
+
+<section class="projects-section" id="projects">
+  <span class="sec-tag">Projects</span>
+  <h2 class="sec-title">Brands I've grown</h2>
+  <p class="sec-sub">Real campaigns, real results — across 5 brands spanning edtech, art, home décor, and overseas services.</p>
+  <div class="projects-grid">
+
+    <div class="pc">
+      <div class="pc-thumb" style="background:#E6F1FB;color:#185FA5">
+        <div class="pt-emoji">💼</div>
+        <div>Infomatic Solutions</div>
+      </div>
+      <div class="pc-body">
+        <span class="p-tag">B2B · LinkedIn · Performance</span>
+        <div class="p-title">Infomatic Solutions</div>
+        <div class="p-desc">Led B2B digital marketing — LinkedIn Ads, Google Ads, organic content strategy, and website SEO. Designed all creatives and social assets in Canva for consistent brand identity across platforms.</div>
+        <div class="p-results">
+          <div class="p-result"><i class="ti ti-trending-up" aria-hidden="true"></i> LinkedIn Ads driving consistent B2B leads</div>
+          <div class="p-result"><i class="ti ti-trending-up" aria-hidden="true"></i> Multi-platform campaign management</div>
+          <div class="p-result"><i class="ti ti-palette" aria-hidden="true"></i> Canva-designed brand creatives & ad visuals</div>
+        </div>
+        <div class="p-links">
+          <a class="p-link" href="https://www.linkedin.com/company/infomaticsolutions/" target="_blank"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          <a class="p-link" href="https://www.instagram.com/infomaticsolutions_com/" target="_blank"><i class="ti ti-brand-instagram" aria-hidden="true"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-thumb" style="background:#E1F5EE;color:#0F6E56">
+        <div class="pt-emoji">🏫</div>
+        <div>Tinker Tots</div>
+      </div>
+      <div class="pc-body">
+        <span class="p-tag">Preschool · Lead Gen · Franchise</span>
+        <div class="p-title">TinkerTots Preschool & Daycare</div>
+        <div class="p-desc">Full-funnel digital marketing for Ahmedabad's top preschool — Meta & Google Ads, social media, SEO, and franchise page. Created all Canva creatives for campaigns, posts, and admission drives.</div>
+        <div class="p-results">
+          <div class="p-result"><i class="ti ti-trending-up" aria-hidden="true"></i> 300+ messaging conversions via Meta Ads</div>
+          <div class="p-result"><i class="ti ti-trending-up" aria-hidden="true"></i> 40K–140K+ reach per campaign</div>
+          <div class="p-result"><i class="ti ti-palette" aria-hidden="true"></i> Canva-designed ad creatives & social posts</div>
+        </div>
+        <div class="p-links">
+          <a class="p-link" href="https://www.tinkertots.in" target="_blank"><i class="ti ti-world" aria-hidden="true"></i> Website</a>
+          <a class="p-link" href="https://www.instagram.com/tinkertots_in/" target="_blank"><i class="ti ti-brand-instagram" aria-hidden="true"></i> Instagram</a>
+          <a class="p-link" href="https://www.instagram.com/tinkertotsfranchise/" target="_blank"><i class="ti ti-brand-instagram" aria-hidden="true"></i> Franchise IG</a>
+          <a class="p-link" href="https://www.linkedin.com/school/tinker-tots-pre-school/" target="_blank"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-thumb" style="background:#FAECE7;color:#993C1D">
+        <div class="pt-emoji">🎨</div>
+        <div>Art Elixir</div>
+      </div>
+      <div class="pc-body">
+        <span class="p-tag">Art Academy · Brand · Paid Ads</span>
+        <div class="p-title">Artelixir Art & Craft Academy</div>
+        <div class="p-desc">Built and managed the full digital presence — paid campaigns, SEO, and social content. Designed all marketing materials, event promos, and workshop banners using Canva.</div>
+        <div class="p-results">
+          <div class="p-result"><i class="ti ti-trending-up" aria-hidden="true"></i> Consistent lead flow via Meta & Google Ads</div>
+          <div class="p-result"><i class="ti ti-trending-up" aria-hidden="true"></i> Multi-platform brand presence built</div>
+          <div class="p-result"><i class="ti ti-palette" aria-hidden="true"></i> Canva-designed event & workshop promos</div>
+        </div>
+        <div class="p-links">
+          <a class="p-link" href="https://www.artelixir.in" target="_blank"><i class="ti ti-world" aria-hidden="true"></i> Website</a>
+          <a class="p-link" href="https://www.instagram.com/artelixir.in/" target="_blank"><i class="ti ti-brand-instagram" aria-hidden="true"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-thumb" style="background:#EEEDFE;color:#534AB7">
+        <div class="pt-emoji">🌍</div>
+        <div>The Hope Overseas</div>
+      </div>
+      <div class="pc-body">
+        <span class="p-tag">Social Media · SEO · Content</span>
+        <div class="p-title">The Hope Overseas</div>
+        <div class="p-desc">Planned and executed SEO, social media, and paid campaigns. Managed the full content pipeline and designed all social creatives, blog visuals, and campaign assets in Canva.</div>
+        <div class="p-results">
+          <div class="p-result"><i class="ti ti-trending-up" aria-hidden="true"></i> 80% boost in social media engagement</div>
+          <div class="p-result"><i class="ti ti-trending-up" aria-hidden="true"></i> Data-driven competitor analysis & pivots</div>
+          <div class="p-result"><i class="ti ti-palette" aria-hidden="true"></i> Canva-designed social creatives & visuals</div>
+        </div>
+        <div class="p-links">
+          <a class="p-link" href="https://www.instagram.com/thehope_ahmedabad/" target="_blank"><i class="ti ti-brand-instagram" aria-hidden="true"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-thumb" style="background:#FAEEDA;color:#854F0B">
+        <div class="pt-emoji">🏡</div>
+        <div>Decorify Life</div>
+      </div>
+      <div class="pc-body">
+        <span class="p-tag">Home Décor · Content · Product</span>
+        <div class="p-title">Decorify Life</div>
+        <div class="p-desc">Handled product content writing and product photography for this ultra-glam, vintage home décor brand under Azine Technology. Designed product showcase posts and catalogue visuals using Canva.</div>
+        <div class="p-results">
+          <div class="p-result"><i class="ti ti-photo" aria-hidden="true"></i> Product photography & visual styling</div>
+          <div class="p-result"><i class="ti ti-writing" aria-hidden="true"></i> Product descriptions & content writing</div>
+          <div class="p-result"><i class="ti ti-palette" aria-hidden="true"></i> Canva-designed product showcase posts</div>
+        </div>
+        <div class="p-links">
+          <a class="p-link" href="https://www.instagram.com/decorifylife/" target="_blank"><i class="ti ti-brand-instagram" aria-hidden="true"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <span class="sec-tag">Contact</span>
+  <h2 class="sec-title">Let's work together</h2>
+  <p class="sec-sub">Open to freelance projects, full-time roles, and marketing consultations.</p>
+  <div class="contact-grid">
+    <div>
+      <div class="ci"><div class="ci-ico"><i class="ti ti-mail" aria-hidden="true"></i></div><div><div class="ci-lbl">Email</div><div class="ci-val">drashtibhattji11@gmail.com</div></div></div>
+      <div class="ci"><div class="ci-ico"><i class="ti ti-phone" aria-hidden="true"></i></div><div><div class="ci-lbl">Phone</div><div class="ci-val">+91 99980 76041</div></div></div>
+      <div class="ci"><div class="ci-ico"><i class="ti ti-map-pin" aria-hidden="true"></i></div><div><div class="ci-lbl">Location</div><div class="ci-val">Ahmedabad, India · Open to remote</div></div></div>
+      <div class="ci"><div class="ci-ico"><i class="ti ti-brand-linkedin" aria-hidden="true"></i></div><div><div class="ci-lbl">LinkedIn</div><a href="https://www.linkedin.com/in/drashti-bhattji/" target="_blank" style="font-size:13px;font-weight:500;color:#D85A30">linkedin.com/in/drashti-bhattji</a></div></div>
+    </div>
+    <div class="cf">
+      <div class="fr">
+        <div class="fg"><label>Name</label><input type="text" placeholder="Your name"></div>
+        <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+      </div>
+      <div class="fg"><label>Message</label><textarea placeholder="Tell me about your project…"></textarea></div>
+      <button class="btn-p" style="width:100%;margin-top:2px">Send message <i class="ti ti-send" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</section>
+
+<div class="footer">© 2026 Drashti Bhattji · Senior Digital Marketing Professional · Ahmedabad, India</div>
